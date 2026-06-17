@@ -1,0 +1,12 @@
+# Secrets — the Bright Data API token lives in these. NEVER commit.
+.claude/settings.local.json
+.mcp.json
+
+# Research outputs (regenerated live; not source)
+geo-research/
+
+# Scratch
+*.tmp
+serp.json
+evidence.json
+__pycache__/
