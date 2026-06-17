@@ -2,8 +2,8 @@
 """
 cluster_serp.py — group live SERP output into search-intent clusters.
 
-Stdlib only. This is a CONVENIENCE for Stage 1: if it errors, cluster inline
-instead. It does NOT invent data — it only organizes what was scraped.
+Stdlib only. This is a CONVENIENCE for Phase 3 (prompt discovery): if it errors,
+cluster inline instead. It does NOT invent data — it only organizes what was scraped.
 
 Input (stdin or file arg): JSON, either a single SERP object or a list of them,
 each shaped roughly like the Bright Data search_engine result:
@@ -95,7 +95,7 @@ def main():
 
     order = ["Informational", "Commercial investigation",
              "Transactional", "Navigational"]
-    out = ["# Stage 1 — Intent Clusters (from live SERP)\n"]
+    out = ["# Intent Clusters (from live SERP)\n"]
     out.append(f"_Source queries scraped: "
                f"{', '.join(s.get('query','?') for s in serps)}_\n")
     for intent in order:

@@ -4,9 +4,11 @@
 
 # Research outputs (regenerated live; not source)
 geo-research/
+opportunity-research/
 
 # Scratch
 *.tmp
 serp.json
 evidence.json
+diagnosis.json
 __pycache__/

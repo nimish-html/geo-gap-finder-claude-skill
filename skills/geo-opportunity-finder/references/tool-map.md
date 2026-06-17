@@ -17,14 +17,17 @@ settings or committed — see `.gitignore`).
 | **Base / free tier** | `search_engine`, `scrape_as_markdown`, `scrape_as_html`, `scrape_batch`, `search_engine_batch`, `discover` | Included in the free tier (rate-limited). Cheap/no per-call credits — use freely. |
 | **GEO / Pro (credits)** | The LLM/AI-engine query tools that return how ChatGPT / Perplexity / Google AI Overview answer a query + their citations | **Burns account credits per call.** Use deliberately — batch target queries, don't re-run needlessly. Stage 2 & 4 are the credit-spending stages. |
 
-## Which tool fires at each stage
+## Which tool fires at each phase
 
-| Stage | Tool(s) | Tier | Why |
+| Phase | Tool(s) | Tier | Why |
 |-------|---------|------|-----|
-| **1 — SERP research** | `search_engine` (params: `query`, `engine`=google/bing/yandex, `geo_location`=2-letter country) — call once per query (no batch variant exposed in this build) | Free | Live SERP: organic results, People Also Ask, related searches, and the AI Overview block when present. Optionally `discover` for AI-ranked relevance expansion. |
-| **2 — GEO reverse-engineering** | `web_data_chatgpt_ai_insights` / `web_data_perplexity_ai_insights` / `web_data_grok_ai_insights` (each takes `prompt`) → then `scrape_batch` | GEO = credits; scrape = free | Get the AI engine's answer + cited URLs, then batch-scrape (**≤5 URLs per call**) those cited pages as Markdown to extract the citation pattern. Use `scrape_as_markdown` for a single page (e.g. the user's own URL). |
-| **3 — Content creation** | none (uses Stage 1–2 evidence) — optional `scrape_as_markdown` to re-pull a competitor | mostly none | Pure synthesis from already-scraped evidence. |
-| **4 — Tracking** | Same GEO tools (`web_data_*_ai_insights`) as Stage 2 | GEO = credits | Re-run the AI-answer check to see if the user's page is now cited. |
+| **1 — Product intake** | `scrape_as_markdown` on the product URL | Free | Pull the page to extract the product profile (features, use cases, ICP, entities). |
+| **2 — Category validation** | none (interactive — AskUserQuestion) | Free | Confirm which topic categories are in scope before spending. |
+| **3 — Prompt discovery** | `search_engine` (params: `query`, `engine`=google/bing/yandex, `geo_location`=2-letter country) — call once per category seed (no batch variant in this build) | Free | Harvest live People Also Ask + related searches to ground the 15-20 candidate prompts in real demand. Optionally `discover` for relevance expansion. Ends at the credit checkpoint. |
+| **4 — GEO diagnosis at scale** | `web_data_chatgpt_ai_insights` per approved prompt (sequentially) → dedupe cited URLs → `scrape_batch` | GEO = credits; scrape = free | Get each prompt's AI answer + cited URLs, then batch-scrape (**≤5 URLs per call**) the cited pages to read the citation pattern + page type. Perplexity/Grok optional, only on request (each is another paid call per prompt). |
+| **5 — Opportunity matrix** | none (scores Phase-4 evidence; helper `score_opportunities.py`) | Free | Pure synthesis: rank prompts by capturability × relevance. |
+| **Optional — Capture** | none (uses Phase 1–4 evidence) — optional `scrape_as_markdown` to re-pull a competitor | mostly none | Brief + draft for a chosen opportunity. |
+| **Optional — Track** | Same GEO tools (`web_data_*_ai_insights`) as Phase 4 | GEO = credits | Re-run the AI-answer check to see if the user's page is now cited. |
 
 ## Confirmed in-session tool names  (verified via tools/list, PRO_MODE=true → 74 tools)
 
