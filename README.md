@@ -1,4 +1,4 @@
-# geo-opportunity-finder
+# geo-gap-finder
 
 A Claude Code skill that finds the **AI-search prompts your product can actually win** — then proves it with live data. Powered by the Bright Data MCP.
 
@@ -93,18 +93,18 @@ Inside Claude Code:
 /plugin marketplace add nimish-html/geo-gap-finder-claude-skill
 ```
 
-Then **Browse and install plugins** → **geo-gap-finder-claude-skill** → **geo-opportunity-finder** → **Install now**.
+Then **Browse and install plugins** → **geo-gap-finder** (the marketplace) → **geo-gap-finder** (the plugin) → **Install now**.
 
 Or symlink it directly:
 
 ```bash
-ln -s "$(pwd)/skills/geo-opportunity-finder" ~/.claude/skills/geo-opportunity-finder
+ln -s "$(pwd)/skills/geo-gap-finder" ~/.claude/skills/geo-gap-finder
 ```
 
 ### 5. Run it
 
 ```
-/geo-opportunity-finder https://yourproduct.com
+/geo-gap-finder https://yourproduct.com
 ```
 
 Or just describe it:
@@ -118,7 +118,7 @@ Find GEO opportunities for my product — https://yourproduct.com, it's an X for
 ## Usage
 
 ```
-/geo-opportunity-finder <product URL or description> [--phase intake|categories|prompts|diagnose|matrix]
+/geo-gap-finder <product URL or description> [--phase intake|categories|prompts|diagnose|matrix]
 ```
 
 - **No `--phase`** → runs the whole flow, pausing for your input at Phase 2 and at the credit checkpoint in Phase 3.
@@ -165,7 +165,7 @@ The skill labels these as proxies in every output and never invents a number. If
 ```
 geo-gap-finder-claude-skill/
 ├── skills/
-│   └── geo-opportunity-finder/
+│   └── geo-gap-finder/
 │       ├── SKILL.md                     # the 5-phase opportunity-finder workflow
 │       ├── references/
 │       │   ├── opportunity-scoring.md   # capturability × relevance rubric

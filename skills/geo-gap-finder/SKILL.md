@@ -1,5 +1,5 @@
 ---
-name: geo-opportunity-finder
+name: geo-gap-finder
 description: >
   Live-data GEO (Generative Engine Optimization) opportunity finder, powered by
   the Bright Data MCP. Give it your product and it runs deep research to find the
@@ -18,7 +18,7 @@ description: >
   product, figure out "where can I rank in AI search", "which prompts should I
   target", "what AI-search gaps can my product fill", "where does ChatGPT cite
   nobody for my space", find winnable long-tail prompts, or do GEO competitor /
-  citation gap analysis. Also trigger on "/geo-opportunity-finder <product url>",
+  citation gap analysis. Also trigger on "/geo-gap-finder <product url>",
   "find GEO opportunities for <product>", or "what AI prompts can <product> win".
   After an opportunity is chosen, can optionally produce the content brief + draft
   to capture it.

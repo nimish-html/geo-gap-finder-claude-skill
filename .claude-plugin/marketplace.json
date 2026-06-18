@@ -1,0 +1,21 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "geo-gap-finder",
+  "description": "Marketplace hosting the geo-gap-finder Claude Code plugin — a live-data GEO opportunity finder.",
+  "owner": {
+    "name": "Nimish Gahlot",
+    "url": "https://github.com/nimish-html"
+  },
+  "plugins": [
+    {
+      "name": "geo-gap-finder",
+      "description": "Find the AI-search prompts your product can actually win — deep GEO research that profiles your product, discovers real long-tail prompts, runs live ChatGPT citation diagnosis, and ranks the gaps into an opportunity matrix. Grounded in live Bright Data scrapes; no hallucinated metrics.",
+      "author": { "name": "Nimish Gahlot" },
+      "category": "marketing",
+      "keywords": ["geo", "seo", "generative-engine-optimization", "ai-search", "chatgpt", "citations", "content-strategy"],
+      "source": "./",
+      "strict": false,
+      "skills": ["./skills/geo-gap-finder"]
+    }
+  ]
+}
