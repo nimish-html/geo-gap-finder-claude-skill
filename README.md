@@ -50,8 +50,8 @@ Every prompt, citation, and score is grounded in something scraped live. No hall
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/nimish-html/full-geo-claude-skill.git
-cd full-geo-claude-skill
+git clone https://github.com/nimish-html/geo-gap-finder-claude-skill.git
+cd geo-gap-finder-claude-skill
 ```
 
 ### 2. Configure Bright Data MCP
@@ -90,10 +90,10 @@ MCP servers load at startup. After saving `.mcp.json`, fully quit and reopen Cla
 Inside Claude Code:
 
 ```
-/plugin marketplace add nimish-html/full-geo-claude-skill
+/plugin marketplace add nimish-html/geo-gap-finder-claude-skill
 ```
 
-Then **Browse and install plugins** → **full-geo-claude-skill** → **geo-opportunity-finder** → **Install now**.
+Then **Browse and install plugins** → **geo-gap-finder-claude-skill** → **geo-opportunity-finder** → **Install now**.
 
 Or symlink it directly:
 
@@ -163,7 +163,7 @@ The skill labels these as proxies in every output and never invents a number. If
 ## File structure
 
 ```
-full-geo-claude-skill/
+geo-gap-finder-claude-skill/
 ├── skills/
 │   └── geo-opportunity-finder/
 │       ├── SKILL.md                     # the 5-phase opportunity-finder workflow
